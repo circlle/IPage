@@ -1,0 +1,11 @@
+.card {
+  height: 10em;
+  border-radius: 1.5em;
+  overflow: hidden;
+}
+
+.card-list {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}

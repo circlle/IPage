@@ -1,0 +1,26 @@
+#lock-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./images/background.jpeg");
+  background-size: cover;
+  transition: top .5s ease-in-out;
+  z-index: 2;
+}
+
+.clock-wrapper {
+  margin-top: 20%;
+  text-align: center;
+}
+
+.time {
+  color: #fff;
+  font-size: 5em;
+}
+
+.clock-day {
+  color: #fff;
+  font-size: 1.2em;
+}

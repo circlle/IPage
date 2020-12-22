@@ -1,0 +1,12 @@
+.mask {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: url(./images/background.jpeg);
+  background-size: cover;
+  opacity: 0.6;
+  filter: blur(5em)
+}
+.mask-content {
+  overflow: hidden;
+}
