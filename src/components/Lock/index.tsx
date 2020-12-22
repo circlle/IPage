@@ -4,7 +4,9 @@ import { useDateTime, useWindowClient } from "../../hooks";
 import { Header } from "../common";
 import "./lock.css";
 
-export type LockPageProps = {};
+export type LockPageProps = {
+  setShowLock: (show: boolean) => void;
+};
 export default function LockPage(props: LockPageProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   // 0 未拖动 ｜ 1 解锁拖动 ｜ 2 查看消息拖动
@@ -27,7 +29,17 @@ export default function LockPage(props: LockPageProps) {
       const handleEnd = (ev: TouchEvent) => {
         if (dragRef.current === "unlock") {
           dragRef.current = "no";
-          setTop(0);
+
+          // 如果高于一半，则触发解锁
+          const { changedTouches: touches = [] } = ev;
+          const firstTouch = touches[0];
+          const touchHeight = firstTouch.clientY;
+          const needLock = touchHeight / screen.height < 0.5;
+          if (needLock) {
+            setTop(-1 * screen.height);
+          } else {
+            setTop(0);
+          }
         }
       };
       const handleMove = (ev: TouchEvent) => {
@@ -48,6 +60,14 @@ export default function LockPage(props: LockPageProps) {
       };
     }
   });
+  useEffect(() => {
+    const lockWrapper = dragRef.current;
+    if (lockWrapper) {
+      if (top !== 0) {
+        props.setShowLock(false);
+      }
+    }
+  }, []);
   return (
     <div
       id="lock-page"
