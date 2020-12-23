@@ -4,8 +4,15 @@
   overflow: hidden;
 }
 
+.card-wrapper {
+  height: 12em;
+}
+
 .card-list {
   width: 80%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
 }

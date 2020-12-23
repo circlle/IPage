@@ -21,15 +21,19 @@ const reducer = (state: CardState, action: Action): CardState => {
   }
 };
 const initialState: CardState = {
-  cardList: [{ appId: 1, themeColor: "cyan" }],
+  cardList: [
+    { appId: 1, themeColor: "cyan" },
+    { appId: 2, themeColor: "cyan" },
+    { appId: 3, themeColor: "cyan" },
+  ],
 };
 const NegativeOnePage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="nagative-one-page">
       <Mask>
-        <div style={{transform: 'translateZ(10px)'}}>
-          <Header color="#666"/>
+        <div style={{ transform: "translateZ(10px)" }}>
+          <Header color="#666" />
         </div>
         <Search />
         <CardList cardState={state} />

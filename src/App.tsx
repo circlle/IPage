@@ -8,7 +8,7 @@ function App() {
   usePreventTouchMove();
   return (
     <div className="App">
-      {showLock && <Lock setShowLock={setShowLock}/>}
+      {false && <Lock setShowLock={setShowLock}/>}
       <Content />
     </div>
   );
